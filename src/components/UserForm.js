@@ -33,17 +33,26 @@ const UserForm = ({ values, errors, touched, status }) => {
 
                 <Field type="text" name="Name" placeholder="Name" />
 
-            
+                <Field type="text" name="Email" placeholder="Email" />
 
+                <Field type="text" name="Password" placeholder="Password" />
 
-
-
-
+                <span>Terms of Service</span>
+                <Field type="checkbox" name="Terms" checked={values.Terms} />
+                
+                <button>Submit</button>
 
             </Form>
-        </div>
-        
+            
+            {user.map(users => (
+                <ul key={users.id}>
+                    <li>Name: {users.Name}</li>
+                    <li>Email: {users.Email}</li>
+                    <li>Password: {users.Password}</li>
 
+                </ul>
+            ))}
+        </div>
     )
 }
 
