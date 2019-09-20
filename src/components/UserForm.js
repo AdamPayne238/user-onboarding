@@ -10,7 +10,7 @@ import styled from "styled-components";
 
 
 const FormHeader = styled.h1`
-width: 35%;
+width: 100%;
 margin: auto;
 text-align: center;
 border: 4px solid black;
@@ -20,7 +20,7 @@ color: black;
 const FormFields = styled.div`
 height: 500px;
 border: 4px solid black;
-width: 35%;
+width: 100%;
 display: flex;
 flex-direction: column;
 margin: auto;
@@ -41,6 +41,13 @@ font-size: 2rem;
 margin: auto;
 max-height: 100%;
 max-width: 100%;
+`;
+
+const FormCheck = styled.label`
+
+}
+
+
 
 `;
 
@@ -71,10 +78,13 @@ const UserForm = ({ values, errors, touched, status }) => {
                 {touched.Password && errors.Password && (
                 <p className="error">{errors.Password}</p>)}
 
-                <span>Terms of Service</span>
+                <span className="terms-of-service">Terms of Service</span>
+                <FormCheck className="checkbox-container">
                 <Field type="checkbox" name="Terms" checked={values.Terms} />
                 {touched.Terms && errors.Terms && (
                 <p className="error">{errors.Terms}</p>)}
+                   <span className="checkmark" />
+                </FormCheck>
                        
                 <FormButton>Submit</FormButton>
                 </FormFields>
