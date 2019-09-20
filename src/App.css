@@ -1,3 +1,8 @@
+
+body{
+  background-image: url(/paradise.jpg);
+  background-size: cover;
+}
 .App {
   text-align: center;
 }
@@ -21,10 +26,7 @@
   color: #09d3ac;
 }
 
-/* Terms of Service Text */
-.terms-of-service{
-  font-size: 2rem;
-}
+
 
 /* CHECK BOX!! */
 .checkbox-container {
@@ -51,6 +53,7 @@
 
 /* Create a custom checkbox */
 .checkmark {
+  border: 2px solid black;
   position: absolute;
   top: 0;
   left: 0;

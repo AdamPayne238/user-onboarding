@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import {  withFormik, Form, Field, yupToFormErrors } from "formik";
+import {  withFormik, Form, Field } from "formik";
 
 import * as Yup from "yup";
 
@@ -10,23 +10,32 @@ import styled from "styled-components";
 
 
 const FormHeader = styled.h1`
-width: 100%;
+border-radius: 10px 10px 0 0;
+background-image: url(/paradise.jpg); 
+font-size: 3rem;
+width: 400px;
 margin: auto;
 text-align: center;
 border: 4px solid black;
 color: black;
+margin-top: 7.2rem;
 `;
 
 const FormFields = styled.div`
-height: 500px;
+border-radius: 0 0 10px 10px;
+background-image: url(/paradise.jpg);
+background-size: cover;
+height: 35rem;
 border: 4px solid black;
-width: 100%;
+width: 400px;
 display: flex;
 flex-direction: column;
 margin: auto;
 input{
+    border-radius: 7px;
+    padding-left: 11px
     font-size: 2rem;
-    margin: 20px
+    margin: 10px
     height: 3rem;
     border: 2px solid black;
 };
@@ -35,6 +44,7 @@ input{
 const FormButton = styled.button`
 width: 50%;
 height: 3rem;
+padding: 0;
 border: 2px solid black;
 border-radius: 20px;
 font-size: 2rem;
@@ -43,12 +53,28 @@ max-height: 100%;
 max-width: 100%;
 `;
 
-const FormCheck = styled.label`
-
+const DropDown = styled.div`
+width: 100%;
+height: 5.5rem;
+.specialty-dropdown{
+    height: 6rem;
+    max-width: 100%;
+    width: 95.5%
+    font-size: 2rem;
+    margin: 10px
+    height: 3rem;
+    border: 2px solid black;
 }
+`;
 
-
-
+const TermsText = styled.div`
+padding-left: 11px
+font-size: 2rem;
+margin: 10px
+height: 3rem;
+border: 2px solid black;
+background: #F8F8F8;
+border-radius: 7px;
 `;
 
 const UserForm = ({ values, errors, touched, status }) => {
@@ -78,13 +104,24 @@ const UserForm = ({ values, errors, touched, status }) => {
                 {touched.Password && errors.Password && (
                 <p className="error">{errors.Password}</p>)}
 
-                <span className="terms-of-service">Terms of Service</span>
-                <FormCheck className="checkbox-container">
+                <DropDown>
+                <Field component="select" className="specialty-dropdown" name="diet">
+                <option>Specialty</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="HTML">HTML</option>
+                <option value="CSS">CSS</option>
+                </Field>
+                </DropDown>
+
+                <TermsText className="terms-of-service">Terms of Service
+                </TermsText>
+
+                <label className="checkbox-container">
                 <Field type="checkbox" name="Terms" checked={values.Terms} />
                 {touched.Terms && errors.Terms && (
                 <p className="error">{errors.Terms}</p>)}
                    <span className="checkmark" />
-                </FormCheck>
+                </label>
                        
                 <FormButton>Submit</FormButton>
                 </FormFields>
